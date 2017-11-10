@@ -1,0 +1,8 @@
+framework module "TestGomobile" {
+	header "ref.h"
+    header "TestGomobile.objc.h"
+    header "Universe.objc.h"
+    header "TestGomobile.h"
+
+    export *
+}
