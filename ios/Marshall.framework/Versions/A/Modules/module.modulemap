@@ -1,0 +1,8 @@
+framework module "Marshall" {
+	header "ref.h"
+    header "Marshall.objc.h"
+    header "Universe.objc.h"
+    header "Marshall.h"
+
+    export *
+}

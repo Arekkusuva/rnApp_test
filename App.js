@@ -9,8 +9,10 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
 } from 'react-native';
+
+import { init, addListener } from './Marshall';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -20,6 +22,18 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component<{}> {
+
+  componentWillMount() {
+    init(['hello', 'golang', ['123', '321'], '45678910']);
+    const conn = new WebSocket("ws://localhost:8589/ws");
+    conn.onclose = function (evt) {
+      console.log('CLOSE', evt);
+    };
+    conn.onmessage = function (evt) {
+      console.log(evt.data);
+    };
+  }
+
   render() {
     return (
       <View style={styles.container}>
